@@ -106,5 +106,15 @@ public class BtDownRpcServiceImpl implements BtDownRpcService {
         return htmlBody;
     }
 
+    @Override
+    public void runDownLoadTask() {
+        //1、获取未下载列表
+        //2、
+        //
+
+
+
+    }
+
 
 }

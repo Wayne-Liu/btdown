@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:task="http://www.springframework.org/schema/task"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- 启动任务-->
+
+	<!--<bean id="zkScheduleManager" class="cn.uncode.schedule.ZKScheduleManager"
+		  init-method="init">
+		<property name="zkConfig">
+			<map>
+				<entry key="zkConnectString" value="${prop.zookeeper.servers}" />
+				<entry key="rootPath" value="${prop.zookeeper.rootPath}" />
+				<entry key="zkSessionTimeout" value="${prop.zookeeper.zkSessionTimeout}" />
+				<entry key="userName" value="${prop.zookeeper.userName_zk}" />
+				<entry key="password" value="${prop.zookeeper.password}"/>
+				<entry key="isCheckParentPath" value="${prop.zookeeper.isCheckParentPath}" />
+
+			</map>
+		</property>
+	</bean>
+
+	<task:annotation-driven scheduler="zkScheduleManager" />-->
+
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" lazy-init="false">
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath*:config/important.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="usagePullSchedulerManager" class="com.example.demo.tbschedule.scheduler.UsagePullSchedulerManager" />
+
+	<bean id="scheduleManagerFactory" class="com.taobao.pamirs.schedule.strategy.TBScheduleManagerFactory"
+		  init-method="init" lazy-init="true">
+		<property name="zkConfig">
+			<map>
+				<entry key="zkConnectString" value="${prop.zookeeper.servers}" />
+				<entry key="rootPath" value="${prop.zookeeper.rootPath}" />
+				<entry key="zkSessionTimeout" value="${prop.zookeeper.zkSessionTimeout}" />
+				<entry key="userName" value="${prop.zookeeper.userName_zk}" />
+				<entry key="password" value="${prop.zookeeper.password}" />
+				<entry key="isCheckParentPath" value="${prop.zookeeper.isCheckParentPath}" />
+			</map>
+		</property>
+	</bean>
+
+	<context:component-scan base-package="com.example.demo"/>
+</beans>
