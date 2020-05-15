@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.wayne.btdown.dao.BillingSubBillMapper">
+    <resultMap id="BaseResultMap" type="org.wayne.btdown.domain.BillingSubBill">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="pin" property="pin" jdbcType="VARCHAR" />
+        <result column="bill_id" property="billId" jdbcType="BIGINT" />
+        <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+        <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+        <result column="site" property="site" jdbcType="TINYINT" />
+        <result column="region" property="region" jdbcType="VARCHAR" />
+        <result column="app_code" property="appCode" jdbcType="VARCHAR" />
+        <result column="service_code" property="serviceCode" jdbcType="VARCHAR" />
+        <result column="resource_id" property="resourceId" jdbcType="VARCHAR" />
+        <result column="billing_type" property="billingType" jdbcType="TINYINT" />
+        <result column="formula" property="formula" jdbcType="VARCHAR" />
+        <result column="bill_fee" property="billFee" jdbcType="DECIMAL" />
+        <result column="bill_fee2" property="billFee2" jdbcType="DECIMAL" />
+        <result column="discount_fee" property="discountFee" jdbcType="DECIMAL" />
+    </resultMap>
+
+    <insert id="insertBill" parameterType="org.wayne.btdown.domain.BillingSubBill">
+        INSERT INTO accounting_sub_bill_2004 (id, pin, bill_id, start_time, end_time, site, region, app_code, service_code, resource_id,
+                    billing_type, formula, bill_fee, bill_fee2, discount_fee, coupon_id, coupon_fee, actual_fee, cash_coupon_id,
+                    cash_coupon_fee, balance_pay_fee, cash_pay_fee, settle_time, bill_time, transaction_no, refund_no, org, pay_state, pay_result,
+                    pay_time, is_deleted) VALUES (
+                    #{id,jdbcType=BIGINT}, 'autoUser_wayne', #{billId,jdbcType=BIGINT}, '2020-04-02 09:00:00', '2020-04-02 09:59:59', '0', 'hb', 'jcloud', 'vm', 'yd-redis-65515vghhb',
+                    '1', #{formula,jdbcType=VARCHAR}, '4.0400', '4.04', '2.02', '', '0.00', '2.02', '',
+                    '0.00', '2.02', '0.00', '2020-04-02 09:59:59', '2020-04-03 21:00:33', 'transactionNo_300788256', '', '950', '1', '1',
+                    '2020-04-03 21:00:33', '0')
+    </insert>
+
+</mapper>

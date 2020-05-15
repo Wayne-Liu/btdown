@@ -7,7 +7,7 @@ import com.taobao.pamirs.schedule.strategy.TBScheduleManagerFactory;
 import com.taobao.pamirs.schedule.taskmanager.ScheduleTaskType;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class UsagePullSchedulerManager {
 
     private TBScheduleManagerFactory scheduleManagerFactory;
