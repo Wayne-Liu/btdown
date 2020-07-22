@@ -15,8 +15,10 @@ public class TorrentController {
     private BtDownRpcService btDownRpcService;
 
     @RequestMapping("/hello")
-    public void helloWorld() {
-        System.out.println("hello world!");
+    @ResponseBody
+    public String helloWorld() {
+        //System.out.println("hello world!");
+        return "hello";
     }
 
     @RequestMapping("/torrent")

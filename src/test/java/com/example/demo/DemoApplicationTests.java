@@ -17,8 +17,8 @@ public class DemoApplicationTests {
 
 	@Test
 	public void contextLoads() throws InterruptedException {
-		int id = 1;
-		int count = 10000;
+		int id = 100001;
+		int count = 1000;
 
 		DataInsertMission d1 = new DataInsertMission(id, count, billingSubBillService);
 		DataInsertMission d2 = new DataInsertMission(id+count*1, count, billingSubBillService);
