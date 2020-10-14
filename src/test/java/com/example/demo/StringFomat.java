@@ -1,9 +1,10 @@
 package com.example.demo;
 
-import org.apache.commons.codec.digest.DigestUtils;
+
 import org.springframework.util.Base64Utils;
 
 public class StringFomat {
+
 
     public static void main(String[] args) {
 //        String phone = "12345";
@@ -16,7 +17,10 @@ public class StringFomat {
 //
 //        System.out.println(fomat1);
 
+        //emhhbmd3ZW54dWFu
         System.out.println(Base64Utils.encodeToString("zhangwenxuan".getBytes()));
+
+
 
     }
 }

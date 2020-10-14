@@ -30,4 +30,15 @@
                     '2020-04-03 21:00:33', '0')
     </insert>
 
+    <sql id="column">
+        id,pin,start_time,end_time,site,region,app_code,service_code,resource_id
+    </sql>
+
+    <select id="selectOne" parameterType="long" resultType="org.wayne.btdown.domain.BillingSubBill">
+        select
+        <include refid="column"></include>
+        from accounting_sub_bill_2004
+        where id=#{id}
+    </select>
+
 </mapper>
