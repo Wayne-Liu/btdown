@@ -18,7 +18,7 @@ public class StringFomat {
 //        System.out.println(fomat1);
 
         //emhhbmd3ZW54dWFu
-        System.out.println(Base64Utils.encodeToString("zhangwenxuan".getBytes()));
+        System.out.println(Base64Utils.encodeToString("jd_质量测试_wayne".getBytes()));
 
 
 
